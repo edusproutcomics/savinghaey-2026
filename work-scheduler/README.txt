@@ -6,12 +6,12 @@
   /work-scheduler/work-scheduler-data.js
 
 필수 공통 파일:
-  /static/style.css
-  /static/footer.js
-  /static/global-loader.js
-  /static/brand-config.js
-  /static/brand-ui.js
-  /static/favicon.ico
+  /static/savinghaey-style.css
+  /static/savinghaey-footer.js
+  /static/savinghaey-global-loader.js
+  /static/savinghaey-config.js
+  /static/savinghaey-ui.js
+  /static/savinghaey-favicon.ico
 
 기본 동작:
   - index.html은 ./work-scheduler-data.json을 먼저 fetch합니다.
