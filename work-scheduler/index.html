@@ -1037,7 +1037,7 @@
               <button class="btn ghost" type="button" id="btnImport">일정 JSON 가져오기</button>
               <button class="btn ghost" type="button" id="btnMergePreset">기본 일정 다시 합치기</button>
               <button class="btn danger" type="button" id="btnResetAll">전체 초기화</button>
-              <input id="importFile" type="file" accept="application/json,.json" hidden />
+              <input id="importFile" type="file" accept="application/json," hidden />
             </div>
           </section>
         </aside>
@@ -1273,7 +1273,7 @@
         if (location.protocol === "file:") return fallback;
 
         try {
-          const response = await fetch("./work-scheduler-data.json", { cache: "no-store" });
+          const response = await fetch("/work-scheduler/work-scheduler-data.json", { cache: "no-store" });
           if (!response.ok) throw new Error("data json not found");
           return await response.json();
         } catch (_) {
