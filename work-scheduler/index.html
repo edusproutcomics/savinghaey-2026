@@ -1284,7 +1284,7 @@
         if (location.protocol === "file:") return fallback;
 
         try {
-          const response = await fetch("/work-scheduler/work-scheduler-data.json", { cache: "no-store" });
+          const response = await fetch("./work-scheduler-data.json", { cache: "no-store" });
           if (!response.ok) throw new Error("data json not found");
           return await response.json();
         } catch (_) {
@@ -1511,7 +1511,7 @@
       function getMonthGridDates(month) {
         const first = parseDate(month + "-01");
         if (!first) return [];
-        const sundayBasedDay = (first.getDay() + 6) % 7;
+        const sundayBasedDay = first.getDay();
         let cursor = addDays(first, -sundayBasedDay);
         const result = [];
         for (let i = 0; i < 42; i += 1) {
@@ -1586,6 +1586,10 @@
         });
         el.timelineView.hidden = state.view !== "timeline";
         el.calendarView.hidden = state.view !== "calendar";
+        if (el.schedulerLayout) {
+          el.schedulerLayout.classList.toggle("is-timeline-view", state.view === "timeline");
+          el.schedulerLayout.classList.toggle("is-calendar-view", state.view === "calendar");
+        }
       }
 
       function resetForm() {
